@@ -1,4 +1,16 @@
 namespaces:
-    test:
-        k8s_name: k8s_namespace_name
-        gitlab_name: test
+    dev_01:
+        k8s_name: ps-dev-01
+        gitlab_name: dev-01
+
+    dev_02:
+        k8s_name: ps-dev-02
+        gitlab_name: dev-02
+
+    dev_03:
+        k8s_name: ps-dev-03
+        gitlab_name: dev-03
+
+    dev_04:
+        k8s_name: ps-dev-04
+        gitlab_name: dev-04

@@ -1,11 +1,13 @@
 projects:
-    -   name: some_project
-        group: some_group
-        pod:
-            k8s_label_selector: "some_label=some_textt"
-        target:
-            type: branch
-            id: master8
-        keywords:
-            - key1
-            - key2
+#    For example full params
+#    -   name: <gitlab project_name>
+#        group: <gitlab group name>
+#        target:
+#            type: branch | commit | tag
+#            id: <branch_name> | <commit short or long hash> | <tag_name>
+#        pod:
+#            migration: [ Optional ] alembic | django
+#            k8s_label_selector: "<k8s pod label>=<value>,<k8s pod label>=<value>,..."
+#        keywords: [ Optional ] list of keywords that can be in the gitlab job state. for search deploy and ps in example deploy:ps-dev-03
+#            - ps
+#            - deploy

@@ -1,7 +1,7 @@
 from threading import Thread
 
 import click
-from dependency_injector.wiring import Provide, Provider, inject, install_loader, register_loader_containers
+from dependency_injector.wiring import Provide, Provider, inject, register_loader_containers
 
 from classes import NameSpace, ProjectConfig
 from helpers.console.live import render_live
@@ -29,12 +29,7 @@ def deploy_namespace_projects(
             AppContainer.services_container.project_manager_factory_provider],
         projects_config: ProjectConfig = Provide[AppContainer.projects_config],
 ):
-    project_managers = [
-        project_manager_factory(config=config) for config in projects_config
-    ]
-
-    # for project_manager in project_managers:
-    #     project_manager.run(namespace)
+    project_managers = [project_manager_factory(config=config) for config in projects_config]
 
     threads = [Thread(target=p.run, args=(namespace,)) for p in project_managers]
     [t.start() for t in threads]
@@ -50,6 +45,7 @@ def main(namespace: NameSpace):
 
 if __name__ == "__main__":
     app = AppContainer()
+    app.config.gitlab_url.from_env("GITLAB_URL")
     app.config.gitlab_private_token.from_env("GITLAB_PRIVATE_TOKEN")
     app.init_resources()
     app.check_dependencies()
