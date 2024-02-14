@@ -1,0 +1,4 @@
+namespaces:
+    test:
+        k8s_name: k8s_namespace_name
+        gitlab_name: test

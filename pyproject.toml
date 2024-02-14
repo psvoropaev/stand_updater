@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "stand-updater"
+version = "0.1.0"
+description = ""
+authors = ["Pavel Voropaev <p.s.voropaev@gmail.com>"]
+readme = "README.md"
+packages = [{include = "stand_updater"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+python-gitlab = "^4.4.0"
+kubernetes = "^29.0.0"
+pydantic = "^2.6.1"
+rich = "^13.7.0"
+click = "^8.1.7"
+dependency-injector = "^4.41.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

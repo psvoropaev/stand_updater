@@ -1,0 +1,41 @@
+logging:
+    version: 1
+    formatters:
+#        standard:
+#            format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+#        error:
+#            format: "%(levelname)s %(name)s.%(funcName)s(): %(message)s"
+        rich:
+            format: "%(message)s"
+            datefmt: "[%X]"
+
+        colored_console:
+            format: "%(asctime)s [green]%(levelname)-7s[/green] [magenta]%(threadName)s[/magenta]:%(filename)s:[blue]%(lineno)s[/blue] ->  %(message)s"
+            datefmt: "[%X]"
+            errors: "%(asctime)s"
+    handlers:
+#        console:
+#            class: logging.StreamHandler
+#            formatter: standard
+#            stream: ext://sys.stdout
+        rich:
+            class: rich.logging.RichHandler
+            formatter: rich
+            show_time: True
+            show_path: True
+            enable_link_path: True
+            tracebacks_theme: "italic magenta underline"
+            level: DEBUG
+
+        buffering_handlers:
+            class: logging.handlers.BufferingHandler
+            formatter: colored_console
+            capacity: 1000
+#            level: DEBUG
+
+    loggers:
+        'rich':
+            handlers:
+                - rich
+#                - buffering_handlers
+            level: DEBUG

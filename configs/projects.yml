@@ -1,0 +1,11 @@
+projects:
+    -   name: some_project
+        group: some_group
+        pod:
+            k8s_label_selector: "some_label=some_textt"
+        target:
+            type: branch
+            id: master8
+        keywords:
+            - key1
+            - key2

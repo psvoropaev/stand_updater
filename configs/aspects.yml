@@ -1,0 +1,22 @@
+aspects:
+    config:
+        io_callable_debug_logger:
+            callable_path: helpers.aspects.decorators.io_callable_logger
+            is_factory: True
+            kwargs:
+                log_level: DEBUG
+
+        collect_project_method_status:
+            callable_path: helpers.aspects.decorators.collect_project_method_status
+
+
+    reference:
+        classes.project_manager.DeployProjectManager.deploy:
+            - collect_project_method_status
+            - io_callable_debug_logger
+        classes.project_manager.DeployProjectManager.wait_pod:
+            - collect_project_method_status
+            - io_callable_debug_logger
+        classes.project_manager.DeployProjectManager.migrate:
+            - collect_project_method_status
+            - io_callable_debug_logger
